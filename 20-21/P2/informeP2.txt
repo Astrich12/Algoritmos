@@ -3,8 +3,8 @@
 
 
 AUTORES:
-->nombres: BRAIS VAZQUEZ VILLA ; SAMUEL TORRES GONZÁLEZ ; JULIÁN BLANCO SÓNORA ;
-->logins: brais.vazquez.villa@udc.es ; samuel.torres@udc.es ; julian.blanco.sonora@udc.es ;
+->nombres: JULIÁN BLANCO SÓNORA ;
+->logins: julian.blanco.sonora@udc.es ;
 
 
 INTRODUCCIÓN:

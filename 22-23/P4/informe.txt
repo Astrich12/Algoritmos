@@ -1,0 +1,167 @@
+Algoritmos - Practica 4
+Curso 22/23
+
+AUTORES:
+	Nombres->
+		Julián Blanco Sóñora
+
+	Login->
+		julian.blanco.sonora@udc.es
+
+
+MÁQUINA EN LA QUE SE EJECUTÓ: 
+
+  	->Modelo						
+            Asus TUF Gaming FX505GD
+  	->Procesador
+            Intel Core i7-8750H.
+  	->Adaptador gráfico
+            NVIDIA GeForce GTX 1050 (Laptop) - 4096 MB, Núcleo: 1354 MHz, 
+            	Memoría: 1752 MHz, GDDR5, 376.19, Optimus
+  	->Memoría RAM
+            15850MiB MB DDR4 SDRAM Dual-Channel
+  	->Disco duro
+            HDD 1TB
+  	->Sistema operativo 
+            Ubuntu 22.04.1 LTS
+  	->Kernel
+            5.15.0-48-generic 
+  	->Architecture: 
+            x86-64
+
+INTRODUCCIÓN:
+
+	En esta práctica implementaremos un montículo de máximos en lenguaje C que
+		inicializaremos a partir de un vector de tamaño N, el cual 
+		inicializaremos de tres formas distintas (ascendente, descendente y 
+		aleatorio), comprobando su correcto funcionamiento y calculando la 
+		complejidad de la función crear montículo, comparandola con la 
+		complejidad teórica. Para esto, por recomendación del enunciado, 
+		utilizaremos un vector inicializado de forma ascendente, con el fin de 
+		demostrar que su complejidad teorica coincide con la que vamos obtener en
+		esta practica (O(n)).
+
+	Del mismo modo también implementaremos un algoritmo de ordenación de 
+		monticulos que va eliminando el mayor de los números del mismo N veces 
+		(hasta que el montículo se encuentre vacio), comprobando su correcto 
+		funcionamiento, calculando su complejidad y comparandola con la 
+		obtenida de forma teórica.
+	
+	
+Unidad de medición: microsegundos   
+
+Calculo tiempos crear_monticulo
+	      n		  t(n)	   t(n)/n^0.80	  t(n)/n^1.000	   t(n)/n^1.20
+(*)	    2000      20.00600	      0.045744	      0.010003	      0.002187
+(*)	    4000      40.14900	      0.052726	      0.010037	      0.001911
+(*)	    8000      80.13500	      0.060444	      0.010017	      0.001660
+(*)	   16000     163.28700	      0.070738	      0.010205	      0.001472
+(*)	   32000     333.98800	      0.083102	      0.010437	      0.001311
+   	   64000     739.00000	      0.105609	      0.011547	      0.001262
+   	  128000    1482.00000	      0.121641	      0.011578	      0.001102
+   	  256000    3008.00000	      0.141803	      0.011750	      0.000974
+   	  512000    6036.00000	      0.163431	      0.011789	      0.000850
+
+						cte: 0.0117 
+
+	   	Cota subestimada 	->	n^0.80
+	   	Cota ajustada	 	->	n^1.00	
+	   	Cota Sobreestimada	->	n^1.20
+
+ 		@	-> Anomalia
+
+Calculo tiempos ordenacionPorMonticulos
+
+VECTORES INICIADOS ASCENDENTEMENTE:
+	      n		  t(n)	   t(n)/n^0.80	  t(n)/n^1.065	   t(n)/n^1.20
+(*)	    2000     187.45400	      0.428618	      0.057187	      0.020496
+(*)	    4000     411.02100	      0.539779	      0.059934	      0.019561
+   	    8000     849.00000	      0.640377	      0.059172	      0.017587
+   	   16000    1790.00000	      0.775456	      0.059630	      0.016140
+   	   32000    3791.00000	      0.943265	      0.060363	      0.014879
+   	   64000    8094.00000	      1.156696	      0.061600	      0.013828
+   	  128000   17024.00000	      1.397313	      0.061927	      0.012659
+   	  256000   35259.00000	      1.662180	      0.061305	      0.011413
+   	  512000   72628.00000	      1.966474	      0.060358	      0.01023
+
+						cte: 0.060 
+
+	   	Cota subestimada 	->	n^0.80
+	   	Cota ajustada	 	->	n^1.065	
+	   	Cota Sobreestimada	->	n^1.20
+
+ 		@	-> Anomalia
+
+VECTORES INICIADOS DESCENDENTEMENTE:
+	      n		  t(n)	   t(n)/n^0.80	  t(n)/n^1.060	   t(n)/n^1.20
+(*)	    2000     183.72100	      0.420083	      0.058219	      0.020087
+(*)	    4000     397.36700	      0.521848	      0.060396	      0.018911
+   	    8000     843.00000	      0.635851	      0.061454	      0.017463
+   	   16000    1751.00000	      0.758560	      0.061224	      0.015789
+   	   32000    3786.00000	      0.942021	      0.063492	      0.014859
+   	   64000    7873.00000	      1.125113	      0.063327	      0.013450
+   	  128000   16440.00000	      1.349379	      0.063425	      0.012225
+   	  256000   34107.00000	      1.607872	      0.063112	      0.011040
+   	  512000   70371.00000	      1.905363	      0.062455	      0.009914
+
+						cte: 0.063 
+
+	   	Cota subestimada 	->	n^0.80
+	   	Cota ajustada	 	->	n^1.06	
+	   	Cota Sobreestimada	->	n^1.20
+
+ 		@	-> Anomalia
+
+VECTORES INICIADOS ALEATORIAMENTE:
+	      n		  t(n)	   t(n)/n^0.80	  t(n)/n^1.110	   t(n)/n^1.20
+(*)	    2000     226.16800	      0.517139	      0.049010	      0.024728
+   	    4000     522.00000	      0.685524	      0.052406	      0.024843
+   	    8000    1052.00000	      0.793494	      0.048931	      0.021793
+   	   16000    2245.00000	      0.972569	      0.048377	      0.020243
+   	   32000    4836.00000	      1.203279	      0.048280	      0.018980
+   	   64000   10356.00000	      1.479953	      0.047900	      0.017692
+   	  128000   22418.00000	      1.840047	      0.048039	      0.016670
+   	  256000   48560.00000	      2.289216	      0.048209	      0.015718
+   	  512000  104396.00000	      2.826623	      0.048017	      0.014708
+
+						cte: 0.0 
+
+	   	Cota subestimada 	->	n^0.80
+	   	Cota ajustada	 	->	n^1.06	
+	   	Cota Sobreestimada	->	n^1.20
+
+ 		@	-> Anomalia
+
+CONCLUSIONES:
+
+	En la funcion crear montículo vemos que la complejidad obtenida en esta
+		práctica coincide con la obtenida de forma teórica (O(n)), demostrando 
+		así lo que se nos pide en el enunciado de la práctica. 
+
+	En el algoritmo de ordenacion vemos que el mejor caso es cuando tenemos un 
+		vector inicializado de forma descendente, ya que el mayor de los numeros 
+		es el primero en ser guardado en el montículo, provocando que sea 
+		desplazado N veces a la vez que se introducen más numeros, pero los 
+		resultados son muy parecidos a los obtenidos con la inicialización 
+		ascendente.
+
+	Lo que si observamos es que con la inicialización aleatoria nos encontramos
+		en el peor caso de todos con diferencia.
+
+	En todos los casos vemos que nos encontramos con una pequeña corrección sobre
+		la complejidad obtenida teóricamente (O(n)). Con el vector ordenado de 
+		forma ascendente la corrección es de 1.065, con el vector ordenado de 
+		forma descendente la corrección es de 1.06 y con el vector ordenado de 
+		forma aleatoria la correccion es de 1.11. Por lo que para obtener nuestra 
+		complejidad debemos elevar "n" a estos números con el fin de ajustarla lo
+		máximo posible.
+
+
+
+
+
+
+
+NOTA
+	Las anomalías se intentan evitar con varias ejecuciones de cada uno de los 
+		casos para todos los algoritmos

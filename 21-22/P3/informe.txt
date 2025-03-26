@@ -2,11 +2,9 @@ AUTORES:
 
 	->nombres:
 				Julian Blanco Sóñora
-				Xian Vázquez Luna
 
 	->logins:
 				julian.blanco.sonora@udc.es
-				xian.vazquez.luna@udc.es 
 
 
 MÁQUINA EN LA QUE SE EJECUTÓ: 

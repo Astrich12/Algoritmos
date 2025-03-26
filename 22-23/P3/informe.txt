@@ -1,0 +1,108 @@
+Algoritmos - Practica 3
+Curso 22/23
+
+AUTORES:
+	Nombres->
+		Julián Blanco Sóñora
+
+	Login->
+		julian.blanco.sonora@udc.es
+
+
+MÁQUINA EN LA QUE SE EJECUTÓ: 
+
+  	->Modelo						
+            Asus TUF Gaming FX505GD
+  	->Procesador
+            Intel Core i7-8750H.
+  	->Adaptador gráfico
+            NVIDIA GeForce GTX 1050 (Laptop) - 4096 MB, Núcleo: 1354 MHz, 
+            	Memoría: 1752 MHz, GDDR5, 376.19, Optimus
+  	->Memoría RAM
+            15850MiB MB DDR4 SDRAM Dual-Channel
+  	->Disco duro
+            HDD 1TB
+  	->Sistema operativo 
+            Ubuntu 22.04.1 LTS
+  	->Kernel
+            5.15.0-52-generic 
+  	->Architecture: 
+            x86-64
+
+
+INTRODUCCIÓN:
+
+	En esta práctica estudiaremos, en lenguaje C, la complejidad computacional 
+		de las operaciones insertar y buscar en árboles binarios de búsqueda de 
+		números enteros, comprobando su correcto funcionamiento mediante un test.
+	Finalmente compararemos estas dos operaciones entre si y determinaremos cual
+		es más rápida.
+	
+
+Unidad de medición: microsegundos
+
+
+Comparación de tiempos
+            n     t_ins(n)     t_bus(n)
+         8000      1100.00       935.00
+        16000      2595.00      2294.00
+        32000      6118.00      5644.00
+        64000     14735.00     12837.00
+       128000     34211.00     30032.00
+       256000     77775.00     67085.00
+
+
+Inserción de n elementos
+    n          t(n)      t/n^0.9   t/((n*log(n))^1.13)       t/n^1.6
+  8000      1100.00     0.337763              0.003575      0.000626
+ 16000      2595.00     0.427001              0.003543      0.000487
+ 32000      6118.00     0.539479              0.003530      0.000379
+ 64000     14735.00     0.696287              0.003611      0.000301
+128000     34211.00     0.866317              0.003577      0.000230
+256000     77775.00     1.055417              0.003482      0.000173
+
+						cte: 0.00357 
+
+	   	Cota subestimada 	->	n^0.9
+	   	Cota ajustada	 	->	(n*log(n))^1.13	
+	   	Cota Sobreestimada	->	n^1.6
+
+ 		@	-> Anomalia
+
+
+Busqueda de n elementos
+    n          t(n)      t/n^0.9   t/((n*log(n))^0.92)       t/n^1.6
+  8000       935.00     0.287098              0.272216      0.004551
+ 16000      2294.00     0.377473              0.268726      0.003003
+ 32000      5644.00     0.497682              0.266539      0.001981
+ 64000     12837.00     0.606599              0.265461      0.001307
+128000     30032.00     0.760493              0.265344      0.000862
+256000     67085.00     0.910352              0.266078      0.000569
+
+						cte: 0.266 
+
+	   	Cota subestimada 	->	n^0.9
+	   	Cota ajustada	 	->	(n*log(n))^0.92	
+	   	Cota Sobreestimada	->	n^1.6
+
+ 		@	-> Anomalia
+
+
+CONCLUSIONES:
+
+	En la función de inserción observamos que la cota obtenida en nuestro 
+		estudio tiene un pequeño ajuste sobre la cota teórica de 1.13, quedando 
+		nuestra complejidad es (n*log(n))^1.13
+
+	Respecto a la búsqueda también contamos con un pequeño ajuste sobre la cota
+		teórica, en este caso de 0.92, por lo que obtenemos que nuestra 
+		complejidad es (n*log(n))^0.92
+
+	Si comparamos ambas funciones vemos que la búsqueda resulta más rapida que la
+		inserción, pues para insertar primero debemos recorrer el árbol (buscar)
+		e insertar el dato en la posición adecuada
+
+
+NOTA
+	Las anomalías se intentan evitar con varias ejecuciones de cada uno de los 
+		casos para todos los algoritmos
