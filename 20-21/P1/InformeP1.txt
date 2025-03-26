@@ -1,0 +1,125 @@
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+												PRACTICA1
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+AUTORES:
+->nombres: BRAIS VAZQUEZ VILLA ;
+->logins: brais.vazquez.villa@udc.es ;
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+INTRODUCCIÓN: en esta práctica se trata la implementación de tres algoritmos que resuelven el cálculo del enésimo término de la sucesión de fibonacci. Se procedera a estudiar sus tiempos de ejecucion y analizar sus complejidades.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+RESULTADOS DEL TEST QUE COMPRUEBA LA CORRECTA IMPLEMENTACIÓN DE LOS ALGORITMOS:
+
+
+Test de la sucesión de fibonacci con el algoritmo fib1:
+0 1 1 2 3 5 8 13 21 34 
+Test de la sucesión de fibonacci con el algoritmo fib2:
+0 1 1 2 3 5 8 13 21 34 
+Test de la sucesión de fibonacci con el algoritmo fib3:
+0 1 1 2 3 5 8 13 21 34 
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+MEDICIÓN DE LOS TIEMPOS DE EJECUCIÓN Y ANÁLISIS DE COMPLEJIDADES:
+
+
+
+Unidad de medición: microsegundos
+---------------------------------
+
+
+Comparación de los tiempos de ejecución del algoritmo fib1: 
+             n           fib1    t(n)/1.1**n   t(n)/(1+sqrt(5)/2)**n      t(n)/2**n
+#            2        0.03000    0.024793388             0.006687371    0.007500000
+#            4        0.07000    0.047810942             0.003478294    0.004375000
+#            8        0.50000    0.233253690             0.001234544    0.001953125
+#           16       16.49000    3.588704449             0.000100530    0.000251617
+            32    13987.00000  662.458458697             0.000000520    0.000003257          <- Aumenta demasiado el tiempo de ejecución
+
+#Tiempo menor a 500 microsegundos 
+*Tiempo promedio de k = 100 iteraciones 
+
+
+Las abreviaciones utilizadas son:
+n: progresion geometrica de las mediciones.
+t(n): tiempo de ejecucion.
+1.1^n: cota subestimada; La sucesión tiende a infinito.								
+(1+sqrt(5)/2)^n: cota ajustada; La sucesión tiende a una constante que se ajusta a 0.0147
+2^n: cota sobrestimada; La sucesión tiende a cero.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Comparación de los tiempos de ejecución del algoritmo fib2: 
+             n           fib2    t(n)/n**0.8         t(n)/n    t(n)/n**log(n)
+#         1000        0.40800    0.001624277    0.000408000       0.000059064
+#        10000        3.79400    0.002393852    0.000379400       0.000041193
+#       100000       37.54300    0.003754300    0.000375430       0.000032609
+#      1000000      355.06400    0.005627385    0.000355064       0.000025700
+      10000000     3562.00000    0.008947339    0.000356200       0.000022099
+
+#Tiempo menor a 500 microsegundos 
+*Tiempo promedio de k = 1000 iteraciones  
+
+Las abreviaciones utilizadas son:
+n: progresion geometrica de las mediciones.
+t(n): tiempo de ejecucion.
+n**0.8: cota subestimada; La sucesión tiende a infinito.								
+n: cota ajustada; La sucesión tiende a una constante que se ajusta a 0.000365430
+n**log(n): cota sobrestimada; La sucesión tiende a cero.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Comparación de los tiempos de ejecución del algoritmo fib3: 
+             n           fib3   t(n)/sqrt(log(n))    t(n)/log(n)    t(n)/n**0.5
+#         1000        0.01644         0.006255087    0.002379934    0.000519878
+#        10000        0.02051         0.006758150    0.002226845    0.000205100
+#       100000        0.02451         0.007223546    0.002128912    0.000077507
+#      1000000        0.03795         0.010210060    0.002746913    0.000037950
+#     10000000        0.03804         0.009475097    0.002360080    0.000012029
+
+#Tiempo menor a 500 microsegundos 
+*Tiempo promedio de k = 100000 iteraciones 
+
+Las abreviaciones utilizadas son:
+n: progresion geometrica de las mediciones.
+t(n): tiempo de ejecucion.
+sqrt(log(n)): cota subestimada; La sucesión tiende a infinito.								
+log(n): cota ajustada; La sucesión tiende a una constante que se ajusta a 0.002360080 
+n**0.5: cota sobrestimada; La sucesión tiende a cero.
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+CONCLUSIÓN: Como conclusión tenemos que el tercero de los algoritmos es el más rápido con bastante diferencia 
+mientras que los otros dos se diferencian principalmente en que el primero tiene una curva exponencial de crecimiento 
+muy alta por lo que mientras más grande sea la entrada este se va a volver mucho más lento.
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+MAQUINA EN LA QUE SE EJECUTÓ: 
+
+						Asus Strix GL753VD
+->Procesador
+	Intel Core i7-7700HQ
+->Adaptador gráfico
+	NVIDIA GeForce GTX 1050 (Laptop) - 4096 MB, Núcleo: 1354 MHz, Memoría: 1752 MHz, GDDR5, 376.19, Optimus
+->Memoría
+	16384 MB DDR4 SDRAM Dual-Channel
+->Pantalla
+	17.3 pulgadas 16:9, 1920 x 1080 pixels 127 PPI, LP173WF4-SPF3, LED IPS, lustroso: no
+->Placa base
+	Intel HM175
+->Disco duro
+	Micron SSD 1100 (MTFDDAV256TBN), 256 GB + Toshiba MQ01ABD100 1 TB HDD (2.5" )
+	
+	

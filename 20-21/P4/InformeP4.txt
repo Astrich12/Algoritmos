@@ -1,0 +1,278 @@
+-ALGORITMOS-
+*PRÁCTICA 4*
+
+
+AUTORES:
+->nombres: BRAIS VAZQUEZ VILLA ; SAMUEL TORRES GONZÁLEZ ; JULIÁN BLANCO SÓNORA ;
+->logins: brais.vazquez.villa@udc.es ; samuel.torres@udc.es ; julian.blanco.sonora@udc.es ;
+
+
+INTRODUCCIÓN:
+
+En esta práctica estudiamos el comportamiento de la ordenación rápida utilizando vectores con diferentes tamaños y inicializaciones(ascendente, descendente y aleatoria),
+estudiando así la complejidad computacional del algoritmo. Para el estudio empleamos distintos umbrales: 1, 10 y 100.
+
+
+MÁQUINA EN LA QUE SE EJECUTÓ: 
+
+  ->Modelo						
+  	  Asus Strix GL753VD.
+  ->Procesador
+	  Intel Core i7-7700HQ.
+  ->Adaptador gráfico
+	  NVIDIA GeForce GTX 1050 (Laptop) - 4096 MB, Núcleo: 1354 MHz, Memoría: 1752 MHz, GDDR5, 376.19, Optimus
+  ->Memoría RAM
+	  16384 MB DDR4 SDRAM Dual-Channel
+  ->Placa base
+	  Intel HM175
+  ->Disco duro
+	  Micron SSD 1100 (MTFDDAV256TBN), 256 GB + Toshiba MQ01ABD100 1 TB HDD (2.5")
+  ->Sistema operativo 
+          Ubuntu 20.04.1 LTS
+  ->Kernel
+          Linux 5.4.0-52-generic
+  ->Architecture: 
+          x86-64
+
+
+
+Unidad de medición: microsegundos (µs)
+
+
+-UMBRAL = 1-
+
+ORDENACION RAPIDA CON INICIALIZACION ASCENDENTE
+
+# -> tiempo promedio de 1000 iteraciones 
+                        n                 t(n)         t(n)/n*0.9        t(n)/(n*log(n))**1.13            t(n)/n*2
+                      500           25.602000#            0.095324               @ 0.002896545         0.000102408
+                     1000           53.508000#            0.106762                 0.002454528         0.000053508
+                     2000          118.490000#            0.126694                 0.002229155         0.000029622
+                     4000          284.443000#            0.162983                 0.002215446         0.000017778
+                     8000          739.000000             0.226915                 0.002401913         0.000011547
+                    16000         1783.000000             0.293389                 0.002434665         0.000006965
+                    32000         4435.000000             0.391074                 0.002359051         0.000004331
+                    
+                   
+n: progresion geométrica de las mediciones.
+t(n): tiempo de ejecución.
+n**0.95: cota subestimada,tiende a infinito.
+(n*log(n))**1.13: cota ajustada.Tiende constante que se ajusta a: 0.0023.
+n**1.6 :cota sobrestimada,tiende a 0.
+
+(La cota teorica ajustada es -> n*log(n)
+
+@ -> anomalía
+
+
+ORDENACION RAPIDA CON INICIALIZACION DESCENDENTE
+
+# -> tiempo promedio de 1000 iteraciones 
+                        n                 t(n)         t(n)/n*0.9        t(n)/(n*log(n))**1.13            t(n)/n*2
+                      500           27.340000#            0.101795                 0.003093178         0.000109360
+                     1000           63.683000#            0.127064                 0.002921277         0.000063683
+                     2000          148.563000#            0.158849                 0.002894918         0.000037141
+                     4000          366.702000#            0.210116                 0.002856138         0.000022919
+                     8000          968.000000             0.297231                 0.003146214         0.000015125
+                    16000         2479.000000             0.407914                 0.003085044         0.000009684
+                    32000         6416.000000             0.565756               @ 0.003702108         0.000006266
+                    
+n: progresion geométrica de las mediciones.
+t(n): tiempo de ejecución.
+n**0.8: cota subestimada,tiende a infinito.
+(n*log(n))**0.95: cota ajustada.Tiende constante que se ajusta a: 0.0029.
+n**2 :cota sobrestimada,tiende a 0.
+
+(La cota teorica ajustada es -> n*log(n)
+
+@ -> anomalía
+ 
+
+ORDENACION RAPIDA CON INICIALIZACION ALEATORIA
+
+# -> tiempo promedio de 1000 iteraciones 
+                        n                 t(n)          t(n)/n*0.9       t(n)/(n*log(n))**0.95           t(n)/n*2
+                      500           25.157000#            0.093667                 0.012103035         0.000100628
+                     1000           52.533000#            0.104817                 0.011832107         0.000052533
+                     2000          107.963000#            0.115438                 0.011494089         0.000026991
+                     4000          231.464000#            0.132626                 0.011740813         0.000014466
+                     8000          554.000000             0.170110                 0.013478180         0.000008656
+                    16000         1013.000000             0.166687                 0.011887738         0.000003957
+                    32000         2161.000000             0.190555                 0.012292312         0.000002110
+                    
+n: progresion geométrica de las mediciones.
+t(n): tiempo de ejecución.
+n**0.8: cota subestimada,tiende a infinito.
+(n*log(n))**0.95: cota ajustada.Tiende constante que se ajusta a: 0.011.
+n**2 :cota sobrestimada,tiende a 0.
+
+(La cota teorica ajustada es -> n*log(n)
+
+@ -> anomalía
+
+
+
+
+
+
+-UMBRAL = 10-
+
+
+ORDENACION RAPIDA CON INICIALIZACION ASCENDENTE
+
+# -> tiempo promedio de 1000 iteraciones 
+                        n                 t(n)         t(n)/n*0.9        t(n)/(n*log(n))**1.13            t(n)/n*2
+                      500           24.083000#            0.089668                 0.002724689         0.000096332
+                     1000           54.843000#            0.109426                 0.002615767         0.000054843
+                     2000          131.352000#            0.140446                 0.002771128         0.000032838
+                     4000          331.553000#            0.189976                 0.002582372         0.000020722
+                     8000          911.000000             0.279729                 0.002860951         0.000014234
+                    16000         2321.000000             0.381915                 0.002869297         0.000009066
+                    32000         6019.000000             0.530749               @ 0.003473039         0.000005878
+                    
+n: progresion geométrica de las mediciones.
+t(n): tiempo de ejecución.
+n**0.8: cota subestimada,tiende a infinito.
+(n*log(n))**0.95: cota ajustada.Tiende constante que se ajusta a: 0.0028.
+n**2 :cota sobrestimada,tiende a 0.
+
+(La cota teorica ajustada es -> n*log(n)
+
+@ -> anomalía
+
+ORDENACION RAPIDA CON INICIALIZACION DESCENDENTE
+
+# -> tiempo promedio de 1000 iteraciones 
+                        n                 t(n)         t(n)/n*0.9        t(n)/(n*log(n))**1.13            t(n)/n*2
+                      500           25.248000#            0.094006                 0.002856494         0.000100992
+                     1000           60.571000#            0.120855                 0.002978523         0.000060571
+                     2000          150.847000#            0.161291                 0.002837887         0.000037712
+                     4000          382.628000#            0.219241                 0.002980181         0.000023914
+                     8000         1039.000000             0.319032                 0.003376980         0.000016234
+                    16000         2740.000000             0.450861                 0.003441437         0.000010703
+                    32000         7191.000000             0.634095               @ 0.004149292         0.000007022
+                    
+n: progresion geométrica de las mediciones.
+t(n): tiempo de ejecución.
+n**0.8: cota subestimada,tiende a infinito.
+(n*log(n))**0.95: cota ajustada.Tiende constante que se ajusta a: 0.0029.
+n**2 :cota sobrestimada,tiende a 0.
+
+(La cota teorica ajustada es -> n*log(n)
+
+@ -> anomalía
+
+ORDENACION RAPIDA CON INICIALIZACION ALEATORIA
+
+# -> tiempo promedio de 1000 iteraciones 
+                        n                 t(n)         t(n)/n*0.9        t(n)/(n*log(n))**0.95            t(n)/n*2
+                      500           22.215000#            0.082713                 0.010687638         0.000088860
+                     1000           45.854000#            0.091491                 0.010327784         0.000045854
+                     2000           99.510000#            0.106400                 0.010594155         0.000024878
+                     4000          211.440000#            0.121153                 0.010725113         0.000013215
+                     8000          459.623000#            0.141130                 0.011182096         0.000007182
+                    16000         1022.000000             0.168168                 0.011993354         0.000003992
+                    32000         2021.000000             0.178210                 0.011495957         0.000001974
+                    
+n: progresion geométrica de las mediciones.
+t(n): tiempo de ejecución.
+n**0.8: cota subestimada,tiende a infinito.
+(n*log(n))**0.95: cota ajustada.Tiende constante que se ajusta a: 0.01
+n**2 :cota sobrestimada,tiende a 0.
+
+(La cota teorica ajustada es -> n*log(n)
+
+@ -> anomalía
+
+
+-UMBRAL = 100-
+
+ORDENACION RAPIDA CON INICIALIZACION ASCENDENTE
+
+# -> tiempo promedio de 1000 iteraciones 
+                        n                 t(n)         t(n)/n*0.9        t(n)/(n*log(n))**1.13            t(n)/n*2
+                      500           17.953000#            0.066844                 0.002131157         0.000071812
+                     1000           36.433000#            0.072693                 0.001871261         0.000036433
+                     2000           88.752000#            0.094897                 0.001869693         0.000022188
+                     4000          223.984000#            0.128340                 0.001944548         0.000013999
+                     8000          704.000000             0.216168                 0.002288156         0.000011000
+                    16000         1818.000000             0.299148                 0.002482457         0.000007102
+                    32000         5037.000000             0.444157               @ 0.002906413         0.000004919
+                    
+n: progresion geométrica de las mediciones.
+t(n): tiempo de ejecución.
+n**0.8: cota subestimada,tiende a infinito.
+(n*log(n))**1: cota ajustada.Tiende constante que se ajusta a: 0.0021.
+n**2 :cota sobrestimada,tiende a 0.
+
+(La cota teorica ajustada es -> n*log(n)
+
+@ -> anomalía
+
+
+ORDENACION RAPIDA CON INICIALIZACION DESCENDENTE
+
+# -> tiempo promedio de 1000 iteraciones 
+                        n                 t(n)         t(n)/n*0.9        t(n)/(n*log(n))**1.13            t(n)/n*2
+                      500           21.843000#            0.081328                 0.002771261         0.000087372
+                     1000           53.193000#            0.106134                 0.002640078         0.000053193
+                     2000          129.956000#            0.138953                 0.002644865         0.000032489
+                     4000          342.722000#            0.196376                 0.002669365         0.000021420
+                     8000          907.000000             0.278501                 0.002947951         0.000014172
+                    16000         2623.000000             0.431609               @ 0.003581675         0.000010246
+                    32000         7053.000000             0.621926               @ 0.004069664         0.000006888
+                    
+n: progresion geométrica de las mediciones.
+t(n): tiempo de ejecución.
+n**0.8: cota subestimada,tiende a infinito.
+(n*log(n))**1: cota ajustada.Tiende constante que se ajusta a: 0.0027.
+n**2 :cota sobrestimada,tiende a 0.
+
+(La cota teorica ajustada es -> n*log(n)
+
+@ -> anomalía
+
+ORDENACION RAPIDA CON INICIALIZACION ALEATORIA
+
+# -> tiempo promedio de 1000 iteraciones 
+                        n                 t(n)         t(n)/n*0.9        t(n)/(n*log(n))**1.00            t(n)/n*2
+                      500           16.255000#            0.060522                 0.005231223         0.000065020
+                     1000           36.606000#            0.073039                 0.005299261         0.000036606
+                     2000           79.748000#            0.085269                 0.005245956         0.000019937
+                     4000          172.077000#            0.098598                 0.005186761         0.000010755
+                     8000          371.958000#            0.114212                 0.005173443         0.000005812
+                    16000          795.000000             0.130815                 0.005132824         0.000003105
+                    32000         1720.000000             0.151668                 0.005181476         0.000001680
+                    
+n: progresion geométrica de las mediciones.
+t(n): tiempo de ejecución.
+n**0.8: cota subestimada,tiende a infinito.
+(n*log(n))**1: cota ajustada.Tiende constante que se ajusta a: 0.0051.
+n**2 :cota sobrestimada,tiende a 0.
+
+(La cota teorica ajustada es -> n*log(n)
+
+@ -> anomalía
+
+
+
+-ANOMALÍAS:
+
+   En el Umbral = 1 ->
+              -Inicialización ascendente: n = 500
+              -Inicialización descendente: n =  32000
+
+   En el Umbral = 10 ->
+	      -Inicialización ascendente: n = 32000
+	      -Inicialización descendente: n =  32000
+	      
+   En el Umbral = 100 ->
+              -Inicialización ascendente: n = 32000
+	      -Inicialización descendente: n = 16000, 32000
+
+-CONCLUSIÓN:
+
+Se obtienen mejores tiempos con umbral 100, ya que se necesitan menos llamadas de recursividad respecto los umbrales de menor unidad. También
+observamos que los peores tiempos se obtienen en inicialización aleatoria, ya que se las inicializaciones de orden ascendente y descendente son
+casos muy favorables para el uso de ordenación rápida (quicksort).
+

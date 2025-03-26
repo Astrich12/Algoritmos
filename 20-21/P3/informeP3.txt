@@ -1,0 +1,108 @@
+-ALGORITMOS-
+
+El Autor de la práctica ha sido:
+ - Julián Blanco Sonora (julian.blanco.sonora@udc.es).
+
+INTRODUCCIÓN:
+
+	He estudiado y comparado el tiempo de ejecución de un algoritmo de ordenacion.
+He diseñado y empleado una función test para verificar los resultados obtenidos
+con 3 tipos de vectores: Desordenado al azar, ordenado de forma ascendente y de forma
+descendente. Posteriormente se muestran en pantalla los resultados:
+
+
+MÁQUINA EN LA QUE SE EJECUTÓ: 
+
+  ->Modelo						
+  	  Asus TUF Gaming FX505GD
+  ->Procesador
+	  Intel Core i7-8700H.
+  ->Adaptador gráfico
+	  NVIDIA GeForce GTX 1050 (Laptop) - 4096 MB, Núcleo: 1354 MHz, Memoría: 1752 MHz, GDDR5, 376.19, Optimus
+  ->Memoría RAM
+	  8192 MB DDR4 SDRAM Dual-Channel
+  ->Disco duro
+	  Disco Duro externo 500 GB
+  ->Sistema operativo 
+          Ubuntu 20.04.1 LTS
+  ->Kernel
+          Linux 5.8.0-52-generic
+  ->Architecture: 
+          x86-64
+
+
+
+Unidad de medición: microsegundos (ms)
+
+-COMPARACIÓN DE TIEMPOS- 
+
+TEST INICIALIZACION ASCENDENTE
+
+ORDENACION
+[    0   1   2   3   4   5   6   7   8   9 ] 
+Ordenado? 0
+ORDENANDO...
+[    0   1   2   3   4   5   6   7   8   9 ] 
+Ordenado? 1
+--------------------------------------------------------------- 
+ORDENACION POR INSERCION CON INICIALIZACION ASCENDENTE
+
+# -> tiempo promedio de 10 iteraciones 
+    n          t(n)  t(n)/n*n**0.6  t(n)/n*n**0.8   t(n)/n*n**1
+  500     14028.00     0.673975     0.194469     0.056112
+ 1000     28137.00     0.445941     0.112015     0.028137
+ 2000     37123.00     0.194086     0.042441     0.009281
+ 4000    116629.00     0.201146     0.038291     0.007289
+ 8000    398180.00     0.226535     0.037542     0.006222
+32000   4552051.00     0.281817     0.035395     0.004445
+--------------------------------------------------------------- 
+TEST INICIALIZACION DESCENDENTE
+
+ORDENACION
+[   10   9   8   7   6   5   4   3   2   1 ] 
+Ordenado? 0
+ORDENANDO...
+[    1   2   3   4   5   6   7   8   9  10 ] 
+Ordenado? 1
+--------------------------------------------------------------- 
+ORDENACION POR INSERCION CON INICIALIZACION DESCENDENTE
+
+# -> tiempo promedio de 10 iteraciones 
+    n          t(n)  t(n)/n*n**0.6  t(n)/n*n**0.8   t(n)/n*n**1
+  500      3074.00     0.147690     0.042615     0.012296
+ 1000     10710.00     0.169742     0.042637     0.010710
+ 2000     38016.00     0.198755     0.043462     0.009504
+ 4000    136250.00     0.234985     0.044733     0.008516
+ 8000    475567.00     0.270563     0.044838     0.007431
+16000   1678411.00     0.314997     0.045445     0.006556
+32000   5704825.00     0.353185     0.044358     0.005571
+--------------------------------------------------------------- 
+TEST INICIALIZACION ALEATORIA
+
+ORDENACION
+[    7  -9  15   0  -2  12   6   0 -16 -11  -1 -17   9 -15   1  -6  -5 ] 
+Ordenado? 0
+ORDENANDO...
+[  -17 -16 -15 -11  -9  -6  -5  -2  -1   0   0   1   6   7   9  12  15 ] 
+Ordenado? 1
+--------------------------------------------------------------- 
+ORDENACION POR INSERCION CON INICIALIZACION DESORDENADA
+
+# -> tiempo promedio de 10 iteraciones 
+    n          t(n)  t(n)/n*n**0.6  t(n)/n*n**0.8   t(n)/n*n**1
+  500      2972.00     0.142790     0.041201     0.011888
+ 1000     10012.00     0.158680     0.039858     0.010012
+ 2000     35487.00     0.185533     0.040571     0.008872
+ 4000    126230.00     0.217704     0.041443     0.007889
+ 8000    438707.00     0.249592     0.041363     0.006855
+16000   1521358.00     0.285522     0.041192     0.005943
+32000   5107047.00     0.316177     0.039710     0.004987
+
+-ANOMALÍAS:
+
+
+
+
+-CONCLUSIÓN:
+
+Cuanto mayor es el vector mas favorable es este algoritmo.

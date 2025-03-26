@@ -1,0 +1,198 @@
+-ALGORITMOS-
+*PRÁCTICA 2*
+
+
+AUTORES:
+->nombres: BRAIS VAZQUEZ VILLA ; SAMUEL TORRES GONZÁLEZ ; JULIÁN BLANCO SÓNORA ;
+->logins: brais.vazquez.villa@udc.es ; samuel.torres@udc.es ; julian.blanco.sonora@udc.es ;
+
+
+INTRODUCCIÓN:
+En esta práctica se implementaron dos algoritmos de ordenación que , al pasarle tres tipos de vecotres, ya sean de orden ascendente, descendente o un vector aleatorio nos devuelven el vector ordenado de menor 
+a mayor y estudiamos sus tiempos de ejecución empleando distintas complejidades.
+
+
+-INICIALIZACIÓN ASCENDENTE-
+
+Unidad de medición: microsegundos (ms)
+
+
+ORDENACIÓN POR INSERCIÓN:
+
+# -> tiempo promedio de 10 iteraciones 
+       n          t(n)  t(n)/n**0.8    t(n)/n**1  t(n)/n**1.12
+
+     500         2.90#    0.020101     0.005800     0.002751
+    1000         5.60#    0.022294     0.005600     0.002444
+    2000        11.10#    0.025380     0.005550     0.002229
+    4000        22.30#    0.029286     0.005575     0.002061
+    8000        44.60#    0.033641     0.005575     0.001896
+   16000       101.80#    0.044101     0.006363     0.001991
+   32000        50.20#    0.012491     0.001569     0.000452
+
+n:progresion geométrica de las mediciones.
+t(n):tiempo de ejecución.
+t(n)/n**0.8:cota subestimada,tiende a infinito.
+t(n)/n**1:cota ajustada.Tiende constante que se ajusta a: 0.0092.
+t(n)/n**1.12:cota sobrestimada,tiende a 0.
+# cuando el tiempo es menor que 500
+
+ORDENACIÓN SHELL:
+
+# -> tiempo promedio de 10 iteraciones 
+       n          t(n)    t(n)/n**1  t(n)/n**1.2   t(n)/n**1.4
+
+     500         8.80#    0.017600     0.005078     0.001465
+    1000        14.20#    0.014200     0.003567     0.000896
+    2000        29.90#    0.014950     0.003269     0.000715
+    4000        63.70#    0.015925     0.003032     0.000577
+    8000       147.70#    0.018462     0.003060     0.000507
+   16000       358.80#    0.022425     0.003235     0.000467
+   32000       716.00     0.022375     0.002810     0.000353
+
+n:progresion geométrica de las mediciones.
+t(n):tiempo de ejecución.
+t(n)/n**1:cota subestimada,tiende a infinito.
+t(n)/n**1.2:cota ajustada.Tiende constante que se ajusta a: 0.0162.
+t(n)/n**1.4:cota sobrestimada,tiende a 0.
+# cuando el tiempo es menor que 500
+
+
+
+-INICIALIZACIÓN DESCENDENTE-
+
+
+Unidad de medición: microsegundos (ms)
+
+
+ORDENACIÓN POR INSERCIÓN:
+
+# -> tiempo promedio de 10 iteraciones 
+       n          t(n)    t(n)/n**1.8    t(n)/n**2   t(n)/n**2.2
+
+     500       118.60#    0.001644       0.000474     0.000137
+    1000       458.10#    0.001824       0.000458     0.000115
+    2000      1734.00     0.001982       0.000434     0.000095
+    4000      7099.00     0.002331       0.000444     0.000084
+    8000     27754.00     0.002617       0.000434     0.000072
+   16000    107793.00     0.002919       0.000421     0.000061
+   32000    413296.00     0.003214       0.000404     0.000051
+  
+n:progresion geométrica de las mediciones.
+t(n):tiempo de ejecución.
+t(n)/n**1.8:cota subestimada,tiende a infinito.
+t(n)/n**2:cota ajustada.Tiende constante que se ajusta a: 0.0022.
+t(n)/n**2.2:cota sobrestimada,tiende a 0.
+# cuando el tiempo es menor que 500
+
+
+ORDENACIÓN SHELL:
+
+# -> tiempo promedio de 10 iteraciones 
+       n          t(n)   t(n)/n**0.95   t(n)/n**1.15  t(n)/n**1.38
+
+     500        11.10#    0.030290       0.008740     0.002093
+    1000        20.80#    0.029381       0.007380     0.001507
+    2000        41.60#    0.030417       0.006651     0.001158
+    4000        92.40#    0.034972       0.006657     0.000988
+    8000       196.20#    0.038438       0.006370     0.000806
+   16000       426.00#    0.043201       0.006233     0.000673
+   32000      1011.00     0.053071       0.006665     0.000613
+
+n:progresion geométrica de las mediciones.
+t(n):tiempo de ejecución.
+t(n)/n**0.95:cota subestimada,tiende a infinito.
+t(n)/n**1.15:cota ajustada.Tiende constante que se ajusta a: 0.0351.
+t(n)/n**1.38:cota sobrestimada,tiende a 0.
+# cuando el tiempo es menor que 500
+
+
+
+-INICIALIZACIÓN ALEATORIA-
+
+
+Unidad de medición: microsegundos (ms)
+
+ORDENACIÓN POR INSERCIÓN:
+
+# -> tiempo promedio de 10 iteraciones 
+       n          t(n)    t(n)/n**1.8    t(n)/n**2   t(n)/n**2.2
+
+     500        63.70#    0.000883       0.000255     0.000074
+    1000       233.80#    0.000931       0.000234     0.000059
+    2000       885.00     0.001012       0.000221     0.000048
+    4000      3275.00     0.001075       0.000205     0.000039
+    8000     13963.00     0.001316       0.000218     0.000036
+   16000     54354.00     0.001472       0.000212     0.000031
+   32000    220734.00     0.001716       0.000216     0.000027
+
+n:progresion geométrica de las mediciones.
+t(n):tiempo de ejecución.
+t(n)/n**1.8:cota subestimada,tiende a infinito.
+t(n)/n**2:cota ajustada.Tiende constante que se ajusta a: 0.011.
+t(n)/n**2.2:cota sobrestimada,tiende a 0.
+# cuando el tiempo es menor que 500
+
+
+ORDENACIÓN SHELL:
+
+# -> tiempo promedio de 10 iteraciones 
+       n          t(n)   t(n)/n**1.15  t(n)/n**1.3   t(n)/n**1.5
+
+     500        26.50#    0.020866     0.011927     0.002370
+    1000        64.30#    0.022815     0.012252     0.002033
+    2000       137.70#    0.022017     0.011109     0.001540
+    4000       310.40#    0.022364     0.010602     0.001227
+    8000       698.00     0.022662     0.010093     0.000975
+   16000      1640.00     0.023994     0.010040     0.000810
+   32000      4021.00     0.026510     0.010422     0.000702
+
+
+
+n:progresión geométrica de las mediciones.
+t(n):tiempo de ejecución.
+t(n)/n**1.15:cota subestimada,tiende a infinito.
+t(n)/n**1.3:cota ajustada.Tiende constante que se ajusta a: 0.026.
+t(n)/n**1.5:cota sobrestimada,tiende a 0.
+# cuando el tiempo es menor que 500
+
+
+CONCLUSIÓN: Una vez ejecutados ambos algoritmos usando las 3 distintas ordenaciones, y tras comparar sus mediciones, llegamos a la conclusión de que la ordenación shell es mucho más eficiente que la 
+ordenación por inserción, en la mayoría de casos exceptuando, por ejemplo, que la lista ya esté ordenada. En ese caso la ordenación por inserción supera a la ordenación shell. Donde más se nota la eficacia
+de la ordenación shell en comparación con la ordenación por inserción, es cuando la lista esta ordenada descendentemente.
+
+ANOMALÍAS:
+
+-> Inicialización desordenada: En la ordenación por inserción en inicialización ascendente, encontramos una anomalía en n = 32000 ya que nos da todos los valores más bajos de lo debido. También encontramos
+otra anomalía en la ordenación shell de inicialización ascendente n = 500 en las tres cotas, nos dan valores más grande de lo esperado.
+
+Hemos hecho todo lo posible por eliminar todas las anomalías posibles, y solo hemos detectado esta última.
+
+
+MÁQUINA EN LA QUE SE EJECUTÓ: 
+
+  ->Modelo						
+  	  Asus Strix GL753VD.
+  ->Procesador
+	  Intel Core i7-7700HQ.
+  ->Adaptador gráfico
+	  NVIDIA GeForce GTX 1050 (Laptop) - 4096 MB, Núcleo: 1354 MHz, Memoría: 1752 MHz, GDDR5, 376.19, Optimus
+  ->Memoría RAM
+	  16384 MB DDR4 SDRAM Dual-Channel
+  ->Placa base
+	  Intel HM175
+  ->Disco duro
+	  Micron SSD 1100 (MTFDDAV256TBN), 256 GB + Toshiba MQ01ABD100 1 TB HDD (2.5")
+  ->Sistema operativo 
+          Ubuntu 20.04.1 LTS
+  ->Kernel
+          Linux 5.4.0-52-generic
+  ->Architecture: 
+          x86-64
+
+
+
+
+
+
+
