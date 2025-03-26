@@ -1,0 +1,303 @@
+AUTORES:
+
+	->nombres:
+				Julian Blanco Sóñora
+				Xian Vázquez Luna
+
+	->logins:
+				julian.blanco.sonora@udc.es
+				xian.vazquez.luna@udc.es 
+
+
+MÁQUINA EN LA QUE SE EJECUTÓ: 
+
+	->Modelo						
+			Asus TUF Gaming FX505GD
+	->Procesador
+			Intel Core i7-8700H.
+	->Adaptador gráfico
+			NVIDIA GeForce GTX 1050 (Laptop) - 4096 MB, Núcleo: 1354 MHz,
+			Memoría: 1752 MHz, GDDR5, 376.19, Optimus
+	->Memoría RAM
+			8192 MB DDR4 SDRAM Dual-Channel
+	->Disco duro
+			Disco Duro externo 500 GB
+	->Sistema operativo 
+			Ubuntu 20.04.1 LTS
+	->Kernel
+			Linux 5.8.0-52-generic
+	->Architecture: 
+			x86-64
+
+
+INTRODUCCIÓN:
+	En esta práctica estudiaremos dos algoritmos de ordenación, implementados en lenguaje C, 
+	y determinaremos su complejidad.
+
+
+Unidad de medición: microsegundos (ms)
+
+
+ORDENACION POR INSERCION
+
+VECTORES INICIADOS ASCENDENTEMENTE:
+	      n			  t(n)			    t(n)/n^0.85			         t(n)/n			    t(n)/n^1.15
+(*)	     500	       1.54300			 0.007838652689			 0.003086000000			 0.001214927664
+(*)	    1000	       3.01900			 0.008508698069			 0.003019000000			 0.001071181622
+(*)	    2000	       6.10100			 0.009539498162			 0.003050500000			 0.000975475868
+(*)	    4000	      12.33100			 0.010696638164			 0.003082750000			 0.000888442464
+(*)	    8000	      24.21700			 0.011654505545			 0.003027125000			 0.000786261221
+(*)	   16000	      48.89900			 0.013055634778			 0.003056187500			 0.000715421517
+(*)	   32000	      96.37800			 0.014275799119			 0.003011812500			 0.000635412033
+
+								cte					->	0.0030
+								Cota subestimada 	->	n^0.85
+	   							Cota ajustada	 	->	n	
+	   							Cota Sobreestimada	->	n^1.15
+
+		(*) -> Tiempo promedio en 1000 ejecuciones del algoritmo
+ 		@	-> Anomalia
+
+
+VECTORES INICIADOS DESCENDENTEMENTE:
+	      n			  t(n)			    t(n)/n^1.80			    t(n)/n^2.00			    t(n)/n^2.20
+(*)	     500	     276.41200			 0.003831871048			 0.001105648000			 0.000319023653
+   	    1000	    1091.00000			 0.004343349231			 0.001091000000			 0.000274046810
+   	    2000	    4538.00000			 0.005188125814			 0.001134500000			 0.000248083855
+   	    4000	   18008.00000			 0.005912314088			 0.001125500000			 0.000214256251
+   	    8000	   71275.00000			 0.006720092475			 0.001113671875			 0.000184560711
+   	   16000	  280197.00000			 0.007586605688			 0.001094519531			 0.000157906322
+   	   32000	 1136480.00000			 0.008836735101			 0.001109843750			 0.000139390073
+
+   	   							cte					->	0.0011
+   	   							Cota subestimada 	->	n^1.80
+	   							Cota ajustada	 	->	n^2.00	
+	   							Cota Sobreestimada	->	n^2.20
+
+		(*) -> Tiempo promedio en 1000 ejecuciones del algoritmo
+ 		@	-> Anomalia
+
+
+VECTORES INICIADOS ALEATORIAMENTE:
+	      n			  t(n)			    t(n)/n^1.80			    t(n)/n^2.00			    t(n)/n^2.20
+(*)	     500	     140.74900			 0.001951188871			 0.000562996000			 0.000162446855
+   	    1000	     525.00000			 0.002090062645			 0.000525000000			 0.000131874038		@
+   	    2000	    2134.00000			 0.002439722452			 0.000533500000			 0.000116661733		@
+   	    4000	    8946.00000			 0.002937114717			 0.000559125000			 0.000106438051
+   	    8000	   36350.00000			 0.003427223591			 0.000567968750			 0.000094125315
+   	   16000	  143584.00000			 0.003887676139			 0.000560875000			 0.000080917431
+   	   32000	  578552.00000			 0.004498548823			 0.000564992187			 0.000070959810
+
+								cte					->	0.00056
+								Cota subestimada 	->	n^1.80
+	   							Cota ajustada	 	->	n^2.00	
+	   							Cota Sobreestimada	->	n^2.20
+
+		(*) -> Tiempo promedio en 1000 ejecuciones del algoritmo
+ 		@	-> Anomalia
+
+
+
+ORDENACION POR SELECCION
+
+
+UMBRAL = 1 
+
+VECTORES INICIADOS ASCENDENTEMENTE:
+	      n			  t(n)		   t(n)/(n*log(n))^0.75		   t(n)/(n*log(n))^0.90		   t(n)/(n*log(n))^1.05
+(*)	     500	       6.59300			 0.015841462095			 0.004741739595			 0.001419319394
+(*)	    1000	      14.13300			 0.018652268194			 0.004952575557			 0.001315014581
+(*)	    2000	      27.73500			 0.020258477525			 0.004778840446			 0.001127296756
+(*)	    4000	      56.56200			 0.023009373362			 0.004828150487			 0.001013110473
+(*)	    8000	     114.95600			 0.026181586757			 0.004892026803			 0.000914074707
+(*)	   16000	     229.69000			 0.029419413316			 0.004899281479			 0.000815888432
+   	   32000	     537.00000			 0.038830063019			 0.005767755704			 0.000856733244		@
+
+   	   							cte					->	0.0048
+								Cota subestimada 	->	(n*log(n))^0.75
+	   							Cota ajustada	 	->	(n*log(n))^0.90	
+	   							Cota Sobreestimada	->	(n*log(n))^1.05
+
+		(*) -> Tiempo promedio en 1000 ejecuciones del algoritmo
+ 		@	-> Anomalia
+
+
+VECTORES INICIADOS DESCENDENTEMENTE:
+	      n			  t(n)		   t(n)/(n*log(n))^0.75		   t(n)/(n*log(n))^0.90		   t(n)/(n*log(n))^1.05
+(*)	     500	       7.66300			 0.018412425911			 0.005511292358			 0.001649665481
+(*)	    1000	      16.23600			 0.021427738371			 0.005689522164			 0.001510689644
+(*)	    2000	      32.21300			 0.023529343303			 0.005550415982			 0.001309306307
+(*)	    4000	      64.43000			 0.026210069052			 0.005499765494			 0.001154038184
+(*)	    8000	     131.03400			 0.029843401294			 0.005576236474			 0.001041919214
+(*)	   16000	     263.64000			 0.033767835459			 0.005623434059			 0.000936483200
+   	   32000	     556.00000			 0.040203938620			 0.005971828997			 0.000887045966		@
+
+   	   							cte					->	0.0055
+   	   							Cota subestimada 	->	(n*log(n))^0.75
+	   							Cota ajustada	 	->	(n*log(n))^0.90	
+	   							Cota Sobreestimada	->	(n*log(n))^1.05
+
+		(*) -> Tiempo promedio en 1000 ejecuciones del algoritmo
+ 		@	-> Anomalia
+
+
+VECTORES INICIADOS ALEATORIAMENTE:
+	      n			  t(n)		   t(n)/(n*log(n))^0.75		   t(n)/(n*log(n))^0.90		   t(n)/(n*log(n))^1.05
+(*)	     500	      11.47000			 0.027559771004			 0.008249317936			 0.002469223942
+(*)	    1000	      23.58400			 0.031125386903			 0.008264454959			 0.002194389293
+(*)	    2000	      47.37500			 0.034604123769			 0.008162883220			 0.001925569996
+(*)	    4000	      94.68500			 0.038517777250			 0.008082342011			 0.001695950729
+(*)	    8000	     190.24900			 0.043329801828			 0.008096169032			 0.001512768354
+(*)	   16000	     384.45000			 0.049241557966			 0.008200308087			 0.001365615864
+   	   32000	     958.00000			 0.069272253952			 0.010289590250			 0.001528399344		@
+
+   	   							cte					->	0.0082
+								Cota subestimada 	->	(n*log(n))^0.75
+	   							Cota ajustada	 	->	(n*log(n))^0.90	
+	   							Cota Sobreestimada	->	(n*log(n))^1.05
+
+		(*) -> Tiempo promedio en 1000 ejecuciones del algoritmo
+ 		@	-> Anomalia
+
+
+
+UMBRAL = 10
+
+VECTORES INICIADOS ASCENDENTEMENTE:
+	      n			  t(n)		   t(n)/(n*log(n))^0.75		   t(n)/(n*log(n))^0.90		   t(n)/(n*log(n))^1.05
+(*)	     500	       8.08900			 0.019436005898			 0.005817675047			 0.001741373363
+(*)	    1000	      16.45500			 0.021716767363			 0.005766265534			 0.001531066648
+(*)	    2000	      33.64900			 0.024578240859			 0.005797843957			 0.001367672924
+(*)	    4000	      66.95000			 0.027235202903			 0.005714873503			 0.001199175173
+(*)	    8000	     134.65900			 0.030669006325			 0.005730500689			 0.001070743467
+(*)	   16000	     269.46600			 0.034514047753			 0.005747702482			 0.000957177902
+   	   32000	     603.00000			 0.043602472999			 0.006476641879			 0.000962030067		@
+
+   	   							cte					->	0.0058
+								Cota subestimada 	->	(n*log(n))^0.75
+	   							Cota ajustada	 	->	(n*log(n))^0.90	
+	   							Cota Sobreestimada	->	(n*log(n))^1.05
+
+		(*) -> Tiempo promedio en 1000 ejecuciones del algoritmo
+ 		@	-> Anomalia
+
+
+
+VECTORES INICIADOS DESCENDENTEMENTE:
+	      n			  t(n)			    t(n)/n^1.80			    t(n)/n^2.00			    t(n)/n^2.20
+(*)	     500	     184.89400			 0.002563166453			 0.000739576000			 0.000213397245
+   	    1000	     953.00000			 0.003793961335			 0.000953000000			 0.000239382777		@
+   	    2000	    2929.00000			 0.003348616243			 0.000732250000			 0.000160122876
+   	    4000	   12739.00000			 0.004182417213			 0.000796187500			 0.000151566547		@
+   	    8000	   47934.00000			 0.004519409508			 0.000748968750			 0.000124121124
+   	   16000	  186897.00000			 0.005060417647			 0.000730066406			 0.000105326674
+   	   32000	  742129.00000			 0.005770446804			 0.000724735352			 0.000091022645
+
+   	   							cte					->	0.00073
+								Cota subestimada 	->	n^1.80
+	   							Cota ajustada	 	->	n^2.00	
+	   							Cota Sobreestimada	->	n^2.20
+
+		(*) -> Tiempo promedio en 1000 ejecuciones del algoritmo
+ 		@	-> Anomalia
+
+
+
+VECTORES INICIADOS ALEATORIAMENTE:
+	      n			  t(n)			    t(n)/n^1.80			    t(n)/n^2.00			    t(n)/n^2.20
+(*)	     500	     101.18100			 0.001402661768			 0.000404724000			 0.000116779055		@
+(*)	    1000	     369.39200			 0.001470576039			 0.000369392000			 0.000092787075
+   	    2000	    1461.00000			 0.001670306702			 0.000365250000			 0.000079870100
+   	    4000	    5700.00000			 0.001871401061			 0.000356250000			 0.000067817672
+   	    8000	   22909.00000			 0.002159952276			 0.000357953125			 0.000059320959
+   	   16000	   90001.00000			 0.002436864415			 0.000351566406			 0.000050720482
+   	   32000	  356804.00000			 0.002774340447			 0.000348441406			 0.000043762262
+
+   	   							cte					->	0.00035
+								Cota subestimada 	->	n^1.80
+	   							Cota ajustada	 	->	n^2.00	
+	   							Cota Sobreestimada	->	n^2.20
+
+		(*) -> Tiempo promedio en 1000 ejecuciones del algoritmo
+ 		@	-> Anomalia
+
+
+
+UMBRAL = 100 
+
+VECTORES INICIADOS ASCENDENTEMENTE:
+	      n			  t(n)		   t(n)/(n*log(n))^0.75		   t(n)/(n*log(n))^0.90		   t(n)/(n*log(n))^1.05
+(*)	     500	       6.87100			 0.016509432133			 0.003582442452			 0.001479166322		@
+(*)	    1000	      15.43600			 0.020371924704			 0.003798026959			 0.001436253101
+(*)	    2000	      32.23400			 0.023544682334			 0.003778615971			 0.001310159858
+(*)	    4000	      66.93900			 0.027230728112			 0.003767924533			 0.001198978147
+(*)	    8000	     136.55300			 0.031100370720			 0.003715265548			 0.001085803642
+(*)	   16000	     273.53900			 0.035035730328			 0.003617504899			 0.000971645722
+   	   32000	     608.00000			 0.043964019210			 0.003927291649			 0.000970007099		@
+
+   	   							cte					->	0.0037
+								Cota subestimada 	->	(n*log(n))^0.75
+	   							Cota ajustada	 	->	(n*log(n))^0.90	
+	   							Cota Sobreestimada	->	(n*log(n))^1.05
+
+		(*) -> Tiempo promedio en 1000 ejecuciones del algoritmo
+ 		@	-> Anomalia
+
+
+
+VECTORES INICIADOS DESCENDENTEMENTE:
+	      n			  t(n)			    t(n)/n^1.80			    t(n)/n^2.00			    t(n)/n^2.20
+(*)	     500	     189.20500			 0.002622929401			 0.000756820000			 0.000218372829		@
+   	    1000	     735.00000			 0.002926087704			 0.000735000000			 0.000184623653
+   	    2000	    2917.00000			 0.003334897091			 0.000729250000			 0.000159466858
+   	    4000	   11793.00000			 0.003871830300			 0.000737062500			 0.000140311193
+   	    8000	   47815.00000			 0.004508189711			 0.000747109375			 0.000123812983
+   	   16000	  186572.00000			 0.005051617956			 0.000728796875			 0.000105143518
+   	   32000	  736843.00000			 0.005729345349			 0.000719573242			 0.000090374313
+
+   	   							cte					->	0.00073
+								Cota subestimada 	->	n^1.80
+	   							Cota ajustada	 	->	n^2.00	
+	   							Cota Sobreestimada	->	n^2.20
+
+		(*) -> Tiempo promedio en 1000 ejecuciones del algoritmo
+ 		@	-> Anomalia
+
+VECTORES INICIADOS ALEATORIAMENTE:
+	      n			  t(n)			    t(n)/n^1.80			    t(n)/n^2.00			    t(n)/n^2.20
+(*)	     500	     102.14400			 0.001416011737			 0.000408576000			 0.000117890511		@
+(*)	    1000	     368.16900			 0.001465707189			 0.000368169000			 0.000092479872		@
+   	    2000	    1444.00000			 0.001650871237			 0.000361000000			 0.000078940742
+   	    4000	    5442.00000			 0.001786695539			 0.000340125000			 0.000064748030
+   	    8000	   22914.00000			 0.002160423696			 0.000358031250			 0.000059333906
+   	   16000	   89590.00000			 0.002425736191			 0.000349960938			 0.000050488861
+   	   32000	  355126.00000			 0.002761293106			 0.000346802734			 0.000043556454
+
+   	   							cte					->	0.00035
+								Cota subestimada 	->	n^1.80
+	   							Cota ajustada	 	->	n^2.00	
+	   							Cota Sobreestimada	->	n^2.20
+
+		(*) -> Tiempo promedio en 1000 ejecuciones del algoritmo
+ 		@	-> Anomalia
+
+
+CONCLUSIONES:
+
+	Para un vector ordenado de forma ascendente, descendente y aleatoria el mejor umbral a usar es 1 debido a que el pivote
+siempre coincide con la media.
+
+	En el algoritmo de ordenación por insercion observamos que la complejidad obtenida en esta práctica coincide con la obtenida
+de forma teórica.
+
+	Mientras tanto en el algoritmo de ordenación rápida observamos que en caso de tener un vector ordenado de forma ascendente
+siempre nos encontramos en el mejor caso de la ordenación, con una complejidad algo mas pequeña que la obtenida de forma
+teórica (0.75 menos). Sin embargo, si este está ordenado de forma descendente o aleatoria el algoritmo se encuentra en su
+peor situación, y la complejidad obtenida en esta práctica coincide con la teórica.
+
+	Si comparamos ambos algoritmos podemos ver que el algoritmo de ordenación rápida con Umbral 1 es el más rapido respecto a los
+demás.
+
+
+
+ 

@@ -1,0 +1,153 @@
+AUTORES:
+
+    ->nombres:
+                Julian Blanco Sóñora
+                Alvaro Sangil Torres
+                Xian Vázquez Luna
+
+    ->logins:
+                julian.blanco.sonora@udc.es
+                alvaro.sangil@udc.es
+                xian.vazquez.luna@udc.es 
+
+
+MÁQUINA EN LA QUE SE EJECUTÓ: 
+
+  	->Modelo						
+            Asus TUF Gaming FX505GD
+  	->Procesador
+            Intel Core i7-8700H.
+  	->Adaptador gráfico
+            NVIDIA GeForce GTX 1050 (Laptop) - 4096 MB, Núcleo: 1354 MHz, Memoría: 1752 MHz, GDDR5, 376.19, Optimus
+  	->Memoría RAM
+            8192 MB DDR4 SDRAM Dual-Channel
+  	->Disco duro
+            Disco Duro externo 500 GB
+  	->Sistema operativo 
+            Ubuntu 20.04.1 LTS
+  	->Kernel
+            Linux 5.8.0-52-generic
+  	->Architecture: 
+            x86-64
+
+INTRODUCCIÓN:
+    En esta practica estudiremos dos algoritmos implementados en lenguaje C para ordenar distintas secuencias de vectores, determinaremos sus tiempos de ejecucion con vectores iniciados de diversas maneras(orden ascendente, descendente y aleatorio). Tambien incluiremos una comprobacion empírica de su complejidad teórica y otras dos empleando una cota subestimada y otra sobrestimada.
+
+Unidad de medición: microsegundos (ms)
+
+ORDENACION POR SHELL
+
+VECTORES INICIADOS ASCENDENTEMENTE:
+	      n				  t(n)		    t(n)/n^0.09		    t(n)/n^1.10		    t(n)/n^1.20
+(*)	     500		      13.07000		 0.048663415112		 0.014041340881		 0.007542435108     @
+(*)	    1000		      33.96000		 0.067759108216		 0.017020318454		 0.008530366321
+(*)	    2000		      72.66000		 0.077690586035		 0.016988788055		 0.007944368829
+(*)	    4000		     160.81000		 0.092142302354		 0.017540705680		 0.007653164747
+(*)	    8000		     351.26000		 0.107856844113		 0.017874327513		 0.007276469488
+	   16000		     725.00000		 0.119297137268		 0.017210996871		 0.006537233949
+	   32000		    1574.00000		 0.138793698107		 0.017431700353		 0.006177670692
+										cte: 0.017 
+
+	   	Cota subestimada 	->	n^0.09
+	   	Cota ajustada	 	->	n^1.10	
+	   	Cota Sobreestimada	->	n^1.10
+
+	(*) -> Tiempo promedio en 100 ejecuciones del algoritmo
+ 	@	-> Anomalia
+
+VECTORES INICIADOS DESCENDENTEMENTE:
+	      n				  t(n)		    t(n)/n^0.95		    t(n)/n^1.15		    t(n)/n^1.38
+(*)	     500		      18.97000		 0.051766145272		 0.014936602583		 0.003576751145
+(*)	    1000		      42.31000		 0.059764463513		 0.015012154498		 0.003065088547
+(*)	    2000		      95.93000		 0.070141645261		 0.015338042946		 0.002670133961
+(*)	    4000		     210.09000		 0.079514876602		 0.015136880803		 0.002246790573
+(*)	    8000		     458.03000		 0.089734291188		 0.014871009096		 0.001882043869
+	   16000		    1015.00000		 0.102932390449		 0.014850055002		 0.001602435162
+	   32000		    2177.00000		 0.114278873223		 0.014352777553		 0.001320539690     @
+										cte: 0.015 
+
+	   	Cota subestimada 	->	n^0.95
+	   	Cota ajustada	 	->	n^1.15	
+	   	Cota Sobreestimada	->	n^1.38
+
+	(*) -> Tiempo promedio en 100 ejecuciones del algoritmo
+ 	@	-> Anomalia
+
+VECTORES INICIADOS ALEATORIAMENTE:
+	      n				  t(n)		    t(n)/n^1.12		    t(n)/n^1.20		    t(n)/n^1.30
+(*)	     500		      49.01000		 0.046498430888		 0.028282688955		 0.015192305916
+(*)	    1000		     113.62000		 0.049596928859		 0.028540053635		 0.014303910529
+(*)	    2000		     258.93000		 0.052003045241		 0.028310424181		 0.013238640136
+	    4000		     578.00000		 0.053409762667		 0.027507799414		 0.012001895739
+	    8000		    1332.00000		 0.056629592878		 0.027592829694		 0.011232779707
+	   16000		    2990.00000		 0.058486658243		 0.026960454492		 0.010240359678     @
+	   32000		    6876.00000		 0.061882505955		 0.026987079849		 0.009564029262     @
+										cte: 0.028 
+
+	   	Cota subestimada 	->	n^1.12
+	   	Cota ajustada	 	->	n^1.20	
+	   	Cota Sobreestimada	->	n^1.30
+
+	(*) -> Tiempo promedio en 100 ejecuciones del algoritmo
+ 	@	-> Anomalia
+
+ORDENACION POR SELECCION
+VECTORES INICIADOS ASCENDENTEMENTE:
+	      n				  t(n)		    t(n)/n^1.80		    t(n)/n^2.00		    t(n)/n^2.20
+(*)	     500		     260.32000		 0.003608789311		 0.001041280000		 0.000300450912
+	    1000		    1036.00000		 0.004124390287		 0.001036000000		 0.000260231434
+	    2000		    4107.00000		 0.004695379621		 0.001026750000		 0.000224521902
+	    4000		   16232.00000		 0.005329224915		 0.001014500000		 0.000193125692
+	    8000		   64682.00000		 0.006098478028		 0.001010656250		 0.000167488683
+	   16000		  259338.00000		 0.007021828021		 0.001013039063		 0.000146151136
+	   32000		 1040999.00000		 0.008094319657		 0.001016600586		 0.000127679261
+										cte: 0.001 
+
+	   	Cota subestimada 	->	n^1.80
+	   	Cota ajustada	 	->	n^2.00	
+	   	Cota Sobreestimada	->	n^2.20
+
+	(*) -> Tiempo promedio en 100 ejecuciones del algoritmo
+ 	@	-> Anomalia
+
+VECTORES INICIADOS DESCENDENTEMENTE:
+	      n				  t(n)		    t(n)/n^1.80		    t(n)/n^2.00		    t(n)/n^2.20
+(*)	     500		     273.99000		 0.003798295112		 0.001095960000		 0.000316228278
+	    1000		    1065.00000		 0.004239841366		 0.001065000000		 0.000267515905
+	    2000		    4282.00000		 0.004895450581		 0.001070500000		 0.000234088820
+	    4000		   17151.00000		 0.005630947297		 0.001071937500		 0.000204059804
+	    8000		   69051.00000		 0.006510404847		 0.001078921875		 0.000178801847
+	   16000		  273611.00000		 0.007408283347		 0.001068792969		 0.000154194752
+	   32000		 1101783.00000		 0.008566947514		 0.001075959961		 0.000135134461
+										cte: 0.001 
+
+	   	Cota subestimada 	->	n^1.80
+	   	Cota ajustada	 	->	n^2.00	
+	   	Cota Sobreestimada	->	n^2.20
+
+	(*) -> Tiempo promedio en 100 ejecuciones del algoritmo
+ 	@	-> Anomalia
+
+VECTORES INICIADOS ALEATORIAMENTE:
+	      n				  t(n)		    t(n)/n^1.80		    t(n)/n^2.00		    t(n)/n^2.20
+(*)	     500		     280.52000		 0.003888819828		 0.001122080000		 0.000323764942
+	    1000		    1051.00000		 0.004184106363		 0.001051000000		 0.000263999264
+	    2000		    4148.00000		 0.004742253388		 0.001037000000		 0.000226763294
+	    4000		   16575.00000		 0.005441837295		 0.001035937500		 0.000197206650
+	    8000		   65595.00000		 0.006184559325		 0.001024921875		 0.000169852821
+	   16000		  261801.00000		 0.007088516136		 0.001022660156		 0.000147539171
+	   32000		 1046321.00000		 0.008135701031		 0.001021797852		 0.000128332008
+										cte: 0.001 
+
+	   	Cota subestimada 	->	n^1.80
+	   	Cota ajustada	 	->	n^2.00	
+	   	Cota Sobreestimada	->	n^2.20
+
+	(*) -> Tiempo promedio en 100 ejecuciones del algoritmo
+ 	@	-> Anomalia
+ 	
+ 	CONCLUSIONES:
+	
+	Una vez ejecutados ambos algoritmos y tras observar los resultados obtenidos en las tablas podemos afirmar que el algortimo de ordenacion por shell es mas eficiente puesto que el crecimineto en t(n) es mucho menor que en el de seleccion 
+    Tambien podemos observar que la complejidad teorica del algoritmo de seleccion coincide con la obtenida teoricamente
+    

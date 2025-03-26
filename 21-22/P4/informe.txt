@@ -1,0 +1,64 @@
+AUTORES:
+
+	->nombres:
+				Julian Blanco Sóñora
+				Xian Vázquez Luna
+
+	->logins:
+				julian.blanco.sonora@udc.es
+				xian.vazquez.luna@udc.es 
+
+MÁQUINA EN LA QUE SE EJECUTÓ: 
+
+	->Modelo						
+			Asus TUF Gaming FX505GD
+	->Procesador
+			Intel Core i7-8700H.
+	->Adaptador gráfico
+			NVIDIA GeForce GTX 1050 (Laptop) - 4096 MB, Núcleo: 1354 MHz,
+			Memoría: 1752 MHz, GDDR5, 376.19, Optimus
+	->Memoría RAM
+			8192 MB DDR4 SDRAM Dual-Channel
+	->Disco duro
+			HDD 1TB
+	->Sistema operativo 
+			Ubuntu 20.04.1 LTS
+	->Kernel
+			Linux 5.8.0-52-generic
+	->Architecture: 
+			x86-64
+
+INTRODUCCIÓN:
+	En esta práctica estudiaremos el algoritmo de Prim que devuelve las aristas que forman el 
+	arbol de recubrimiento mínimo en una cola y determinaremos su 
+	complejidad.
+
+
+Unidad de medición: microsegundos (μs)
+
+
+ALGORITMO DE PRIM:
+	       n		  t(n)		   t(n)/n^1.80		   t(n)/n^2.09		   t(n)/n^2.20
+(*)	       8	       0.27800		    0.00658389		    0.00360236		    0.00286581
+(*)	      16	       1.00800		    0.00685559		    0.00306796		    0.00226150
+(*)	      32	       4.23600		    0.00827344		    0.00302826		    0.00206836
+(*)	      64	      19.48900		    0.01093114		    0.00327245		    0.00207106
+(*)	     128	      85.15500		    0.01371615		    0.00335847		    0.00196946
+(*)	     256	     354.31100		    0.01638901		    0.00328219		    0.00178343
+   	     512	    1537.00000		    0.02041681		    0.00334426		    0.00168376
+   	    1024	   10740.00000		    0.04096985		    0.00548880		    0.00256062	@
+
+							cte					->	0.003
+							Cota subestimada 	->	n^1.80
+	   						Cota ajustada	 	->	n^2.09	
+	   						Cota Sobreestimada	->	n^2.20
+
+		(*) -> Tiempo promedio en 1000 ejecuciones del algoritmo
+ 		@	-> Anomalia
+
+
+CONCLUSIONES:
+
+	Tras la ejecución de este algoritmo observamos que la complejidad obtenida
+	bastante similar a la complejidad teórica, siendo el error obtenido inferior 
+	al 5%.
